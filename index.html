@@ -44,8 +44,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 80px 20px 80px;
+      justify-content: flex-start;
+      padding: 70px 20px 60px;
       background:
         radial-gradient(ellipse 80% 60% at 50% 0%,  #fce7f3 0%, transparent 70%),
         radial-gradient(ellipse 50% 40% at 90% 80%, #fdf4ff 0%, transparent 60%),
@@ -510,10 +510,8 @@
 
     /* ══ GIFT TEASER SECTION ══ */
     .gift-teaser {
-      margin-top: 24px;
-      padding-top: 0;
       position: relative;
-      padding: 60px 20px 80px;
+      padding: 80px 20px 100px;
       background: linear-gradient(180deg, var(--pink-pale) 0%, #fce7f3 100%);
       display: flex; flex-direction: column;
       align-items: center; text-align: center;
@@ -627,89 +625,40 @@
     }
     .gp-back:hover { color: var(--rose-deep); }
 
-    /* ── BIG GIFT BOX (gift page) ── */
-    /* ── BIG GIFT WRAP ── */
-    /* ══ BIG GIFT BOX (gift page) ══ */
+
+    .big-page-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      width: 100%; 
+      max-width: 500px;
+      z-index: 1;
+    }
+
+  .gift-card-reveal {
+      width: clamp(260px, 80vw, 320px);
+      opacity: 0;
+      transform: translateY(-20px) scale(.94);
+      transition: opacity .7s .3s ease, transform .7s .3s cubic-bezier(.34,1.56,.64,1);
+      pointer-events: none;
+      margin-top: 32px;
+    }
+
+    .gift-card-reveal.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: all;
+    }
+
     .big-gift-wrap {
       position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      animation: giftBounce 2.2s cubic-bezier(.45,.05,.55,.95) infinite;
-    }
-
-    @keyframes giftBounce {
-      0%   { transform: translateY(0px) rotate(0deg);   }
-      20%  { transform: translateY(-22px) rotate(2deg); }
-      40%  { transform: translateY(-28px) rotate(-1.5deg); }
-      55%  { transform: translateY(-18px) rotate(1deg);  }
-      70%  { transform: translateY(-26px) rotate(-2deg); }
-      85%  { transform: translateY(-10px) rotate(1deg);  }
-      100% { transform: translateY(0px) rotate(0deg);   }
-    }
-
-    .big-gift-wrap.opening {
-      animation: none !important;
-      transform: none !important;
-    }
-
-    /* The box scene */
-    .big-gift {
-      position: relative;
-      width: 220px;
-      height: 290px;
       flex-shrink: 0;
-    }
-
-    /* ── BOX BODY ── */
-    .bg-body {
-      position: absolute;
-      bottom: 0; left: 10px;
-      width: 200px; height: 150px;
-      background: linear-gradient(160deg, #fff5fa 0%, #fce7f3 60%, #fbcfe8 100%);
-      border-radius: 8px 8px 14px 14px;
-      border: 2px solid #f9a8d4;
-      box-shadow:
-        0 18px 50px rgba(190,24,93,.22),
-        0 4px 14px rgba(190,24,93,.1),
-        inset 0 1px 0 rgba(255,255,255,.9);
-    }
-
-    /* vertical ribbon on body */
-    .bg-ribbon-v {
-      position: absolute;
-      bottom: 0; left: calc(10px + 50% - 13px);
-      width: 26px; height: 150px;
-      background: linear-gradient(180deg, #f9a8d4, #f472b6 40%, #e879a0);
-      border-radius: 0 0 10px 10px;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    /* horizontal ribbon on body */
-    .bg-ribbon-h {
-      position: absolute;
-      bottom: 57px; left: 10px;
-      width: 200px; height: 26px;
-      background: linear-gradient(180deg, #f9a8d4, #f472b6 50%, #e879a0);
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    /* ── BOX LID ── */
-    .bg-lid {
-      position: absolute;
-      bottom: 148px; left: 4px;
-      width: 212px; height: 34px;
-      background: linear-gradient(160deg, #fce7f3 0%, #f9a8d4 100%);
-      border-radius: 8px;
-      border: 2px solid #f9a8d4;
-      box-shadow: 0 6px 20px rgba(190,24,93,.2), inset 0 1px 0 rgba(255,255,255,.8);
-      z-index: 3;
-      transform-origin: center top;
-      transition: transform .75s .1s cubic-bezier(.4,0,.2,1), opacity .5s .3s ease;
-      overflow: hidden;
+      transition: transform .8s cubic-bezier(.4,0,.2,1);
     }
 
     /* lid ribbon */
